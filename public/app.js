@@ -2,8 +2,8 @@ const DEFAULT_CORS_PROXY = (url) =>
   `/api/v1/mercenaries/fetch?url=${encodeURIComponent(url)}`;
 
 const DEFAULT_FEEDS = [
-  "https://news.google.com/rss",
-  "https://www.reddit.com/r/artifical.rss",
+  "https://www.reddit.com/r/artificial.rss",
+  "https://news.google.com/rss/topics/CAAqJAgKIh5DQkFTRUFvSEwyMHZNRzFyZWhJRlpXNHRSMElvQUFQAQ",
 ];
 
 const MAX_NEWS_PER_FEED = 500;
@@ -20,7 +20,7 @@ const newsFeeds = document.querySelector("#feeds");
 const feedItem = document.querySelector("#settings-feed-item");
 const newsItem = document.querySelector("#news-item");
 
-// State = {lastSeen: Date, feeds: Array<Feed>}
+// State = {feeds: Array<Feed>}
 // Feed = {url: String, Entries: Array<Entry>}
 // Entry = {title: String, link: String, timestamp: Date}
 const state = (() => {
