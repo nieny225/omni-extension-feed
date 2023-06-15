@@ -2,6 +2,6 @@ title: Feed Extension
 version: 0.0.2
 description: A news feed reader for omnitool extension
 author: huntersjq
-origin: https://github.com/huntersjq/omni-feed-extension.git
+origin: https://github.com/huntersjq/omni-extension-feed.git
 client:
   addToWorkbench: true
