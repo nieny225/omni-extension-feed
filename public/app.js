@@ -152,6 +152,7 @@ function render(urlFilter = '') {
     }
 
     el.querySelector('a').href = n.link;
+    el.querySelector('a').target = '_blank';
     el.querySelector('span').innerHTML = n.title;
     if (highlight(n.title)) {
       el.querySelector('span').classList.add('marked');
