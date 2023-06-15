@@ -1,10 +1,5 @@
-//const DEFAULT_CORS_PROXY = url => `https://cors.zserge.com/?u=${encodeURIComponent(url)}`;
-
-const HEADERS = {
-  "Access-Control-Allow-Origin": "*", // Set the CORS header
-  "Access-Control-Allow-Methods": "GET, PUT, PATCH, POST, DELETE",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
-};
+const DEFAULT_CORS_PROXY = (url) =>
+  `/api/v1/mercenaries/fetch?url=${encodeURIComponent(url)}`;
 
 const DEFAULT_FEEDS = [
   "https://news.google.com/rss",
@@ -230,11 +225,7 @@ function onKeywordsChanged(keywords) {
   // Fetch each feed and render the settings screen
   for (const feed of state.feeds) {
     const f = parseFeed(
-      await fetch(feed.url, {
-        mode: "cors",
-        credentials: "include",
-        headers: HEADERS,
-      }).then((res) => res.text())
+      await fetch(DEFAULT_CORS_PROXY(feed.url)).then((res) => res.text())
     );
     feed.entries = feed.entries
       .concat(

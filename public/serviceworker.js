@@ -1,4 +1,4 @@
-const cacheName = "omni-feed-v2";
+const cacheName = "omni-feed-v3";
 const staticFiles = ["./", "./index.html", "./app.js", "./styles.css"];
 
 self.addEventListener("install", (e) => {
