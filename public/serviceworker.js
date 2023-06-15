@@ -3,6 +3,7 @@ const staticFiles = [
   './',
   './index.html',
   './app.js',
+  './serviceworker.js',
   './styles.css',
 ];
 

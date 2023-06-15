@@ -3,3 +3,5 @@ version: 0.0.1
 description: A news feed reader for Omnitool extension
 author: huntersjq
 origin: https://github.com/huntersjq/omni-feed-extension
+client:
+  addToWorkbench: true
