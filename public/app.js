@@ -125,11 +125,9 @@ function render(urlFilter = "") {
     .filter((k) => k.length)
     .map((k) => {
       let mode = "";
-      if (k[0] == "/" && k[k.length - 1] == "/") {
         k = k.substring(1, k.length - 1);
       } else {
         k = "\\b" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b";
-        mode = k.toLowerCase() == k ? "i" : "";
       }
       return new RegExp(k, mode);
     });
@@ -137,7 +135,6 @@ function render(urlFilter = "") {
   const newsList = []
     .concat(
       ...state.feeds
-        .filter((f) => !urlFilter || f.url == urlFilter)
         .map((f) => f.entries)
     )
     .sort((a, b) => b.timestamp - a.timestamp)
@@ -171,9 +168,28 @@ function render(urlFilter = "") {
     } else {
       el.querySelector("span").classList.remove("marked");
     }
-    el.querySelector("em").innerText = `(${
-      simplifyLink(n.link).split("/")[0]
-    })`;
+    el.querySelector("em").innerText = `(${simplifyLink(n.link).split("/")[0]})`;
+
+    // Calculate the recentness of the news entry
+    const now = new Date();
+    const diffTime = Math.abs(now - n.timestamp);
+    let recentness = "";
+    if (diffTime < 60000) { // Less than a minute
+      recentness = "Now";
+    } else if (diffTime < 3600000) { // Less than an hour
+      const minutes = Math.floor(diffTime / 60000);
+      recentness = `${minutes}min`;
+    } else if (diffTime < 86400000) { // Less than a day
+      const hours = Math.floor(diffTime / 3600000);
+      recentness = `${hours}h`;
+    } else { // More than a day
+      const days = Math.floor(diffTime / 86400000);
+      recentness = `${days}d`;
+    }
+    const recentnessSpan = document.createElement("span");
+    recentnessSpan.setAttribute("data-recentness", recentness);
+    recentnessSpan.textContent = recentness;
+    el.insertBefore(recentnessSpan, el.querySelector("em"));
   });
 }
 

@@ -1,12 +1,15 @@
 /* Theme */
 :root {
-    --color-text: #212121;
-    --color-text-secondary: #bdbdbd;
-    --color-text-visited: #757575;
+    --color-text: #555555;
+    --color-text-secondary: #8ab697d0;
+    --color-text-visited: #bbbbbb;
     --color-accent: #FFFF00;
-    --color-background: #ffffff;
-    --line-height: 140%;
-    --font-family: 'PT Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+    --color-hover: #eeeeee;
+    --color-background: #F1F5F8;
+    --line-height: 150%;
+    --font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /* --font-family: "Charter",Georgia,serif, "Mulish","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif; */
+    /* --font-family: "Aktiv Grotesk","Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +19,7 @@
         --color-text-visited: #757575;
         --color-background: #212121;
         --color-accent: #880E4F;
+        --color-hover: #555555;
     }
 }
 
@@ -31,7 +35,7 @@ html {
 }
 
 body {
-    font-size: 1.6em;
+    font-size: 2em;
     background: var(--color-background);
     color: var(--color-text);
     line-height: var(--line-height);
@@ -229,15 +233,52 @@ nav a {
 #news h3:not(:empty) {
     margin-top: 2rem;
     margin-bottom: 1rem;
+    font-weight: 100;
+    text-transform: uppercase;
 }
 
 #news li {
-    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
 }
+
+#news li:hover {
+    background-color: var(--color-hover); 
+}
+
+#news span[data-recentness] {
+    color: var(--color-text-secondary);
+    font-size: 0.8em;
+}
+
+#news li > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#news li > div:first-child {
+    flex-direction: column;
+}
+
+#news li > div:last-child {
+    align-items: center;
+}
+
+#news li a span {
+    margin: 10px;
+    display: inline-block;
+    flex-grow: 1;
+  }
 
 #news em {
     padding: 0 0.5rem;
     color: var(--color-text-secondary);
+    margin-left: auto;
+    font-size: 0.8em;
 }
 
 #news a:visited,
