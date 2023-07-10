@@ -125,7 +125,9 @@ function render(urlFilter = "") {
     .filter((k) => k.length)
     .map((k) => {
       let mode = "";
-        k = k.substring(1, k.length - 1);
+      if (k[0] === "+") {
+        mode = "i";
+        k = k.substring(1);
       } else {
         k = "\\b" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b";
       }
