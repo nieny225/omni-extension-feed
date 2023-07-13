@@ -7,7 +7,7 @@
     --color-hover: #eeeeee;
     --color-background: #F1F5F8;
     --line-height: 150%;
-    --font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family: Roboto, ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     /* --font-family: "Charter",Georgia,serif, "Mulish","HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif; */
     /* --font-family: "Aktiv Grotesk","Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
 }
@@ -17,7 +17,7 @@
         --color-text: #fafafa;
         --color-text-secondary: #bdbdbd;
         --color-text-visited: #757575;
-        --color-background: #212121;
+        --color-background: #2c3444;
         --color-accent: #880E4F;
         --color-hover: #555555;
     }
